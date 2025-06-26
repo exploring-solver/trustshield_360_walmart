@@ -159,3 +159,5 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+
+@layer theme, base, clerk, components, utilities;

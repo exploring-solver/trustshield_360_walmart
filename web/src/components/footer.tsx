@@ -1,19 +1,49 @@
-import React from 'react'
+import { Wand2 } from "lucide-react";
+import Link from "next/link"; // Assuming you're using Next.js; remove if not
 
-function Footer() {
+export function Footer() {
   return (
-    <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500">© 2025 Shoplifters | Walmart. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <a className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </a>
-          <a className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </a>
-        </nav>
-      </footer>
-  );
-}
+    <footer className="border-t py-4 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center text-center space-y-4">
+          <div className="flex items-center gap-2">
+            <Wand2 className="h-5 w-5 text-primary" />
+            <span className="font-semibold">ShopLifters</span>
+          </div>
 
-export default Footer
+          {/* Social Links */}
+          <div className="flex space-x-6">
+            <Link
+              href="https://github.com/exploring-solver/walmart "
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              GitHub
+            </Link>
+            <Link
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              LinkedIn
+            </Link>
+            <Link
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Twitter
+            </Link>
+          </div>
+
+          <div className="text-sm text-muted-foreground">
+            Powered by Groq AI • © {new Date().getFullYear()} VideoTransform • Made with ❤️ by ShopLifters
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+} 
