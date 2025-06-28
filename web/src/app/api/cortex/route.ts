@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// File: app/api/cortex/route.ts
+// src/app/api/cortex/route.ts
 
 import { NextResponse } from "next/server";
 

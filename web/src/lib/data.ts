@@ -45,7 +45,6 @@ export interface SecurityData {
 
 // This function simulates an API call to a secure backend.
 export const getSecurityData = async (): Promise<SecurityData> => {
-  // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 500));
 
   return {

@@ -18,7 +18,6 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Brand */}
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <Wand2 className="h-6 w-6 text-primary" />
@@ -28,7 +27,6 @@ export function Nav() {
 
         
 
-        {/* Actions */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <SignedIn>

@@ -1,4 +1,4 @@
-// File: app/api/vision-guard/route.ts
+//src/app/api/vision-guard/route.ts
 import { NextResponse } from "next/server";
 
 // Mock detection logic
