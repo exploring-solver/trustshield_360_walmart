@@ -77,9 +77,9 @@ export default function FraudGraph() {
   }
 
   return (
-    <Card>
+    <Card className='bg-foreground/80'>
       <CardHeader>
-        <CardTitle>Fraud Ring Visualization</CardTitle>
+        <CardTitle className='text-background'>Fraud Ring Visualization</CardTitle>
       </CardHeader>
       <CardContent>
         <div ref={containerRef} style={{ height: '500px' }} />

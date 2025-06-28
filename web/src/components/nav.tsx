@@ -1,6 +1,6 @@
 'use client'; 
 import Link from "next/link";
-import { Wand2, ArrowRight, History, Menu, X } from "lucide-react";
+import { Wand2, ArrowRight, Menu, X, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -32,10 +32,10 @@ export function Nav() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <SignedIn>
-            <Link href="/history">
+            <Link href="/visualization">
               <Button variant="outline" size="sm" className="hidden sm:flex gap-2">
-                <History className="h-4 w-4" />
-                History
+                <Eye className="h-4 w-4" />
+                Visualizer
               </Button>
             </Link>
             <Link href="/dashboard">
@@ -56,12 +56,12 @@ export function Nav() {
           </SignedOut>
 
           {/* Mobile Menu Button */}
-          <button
+          <Button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 rounded-md text-muted-foreground hover:text-primary"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -77,11 +77,11 @@ export function Nav() {
           </Link>
           <SignedIn>
             <Link
-              href="/history"
+              href="/visualization"
               className="block text-base font-medium hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              History
+              Visualizer
             </Link>
             <Link
               href="/dashboard"

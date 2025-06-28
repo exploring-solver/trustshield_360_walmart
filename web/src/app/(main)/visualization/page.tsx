@@ -79,7 +79,7 @@ export default function DashboardPage() {
   return (
     <main className="container mx-auto p-4 md:p-8">
       <div className="mb-8 text-center">
-         <h1 className="text-4xl font-bold tracking-tight">TrustShield 360 Dashboard</h1>
+         <h1 className="text-4xl font-bold tracking-tight">ShopLifter&apos;s 360</h1>
          <p className="text-lg text-muted-foreground">A unified view of next-generation retail security.</p>
       </div>
 
