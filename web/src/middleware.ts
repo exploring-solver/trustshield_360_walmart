@@ -7,6 +7,9 @@ const isPublicRoute = createRouteMatcher([
   '/api/cortex(.*)',
   '/api/fraud-rings(.*)',
   '/api/vision-guard(.*)',
+  '/api/crypto/handshake(.*)',
+  '/api/blockchain/log(.*)',
+  
 ])
 
 export default clerkMiddleware(async (auth, req) => {
