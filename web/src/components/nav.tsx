@@ -1,6 +1,6 @@
 'use client'; 
 import Link from "next/link";
-import { Wand2, ArrowRight, Menu, X, Eye } from "lucide-react";
+import { Wand2, ArrowRight, Menu, X, Eye, BlocksIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -36,13 +36,21 @@ export function Nav() {
                 Visualizer
               </Button>
             </Link>
+            <Link href="/secure-flow">
+              <Button variant="outline" size="sm" className="hidden sm:flex gap-2">
+                <BlocksIcon className="h-4 w-4" />
+                  BlockChain
+              </Button>
+            </Link>
             <Link href="/dashboard">
               <Button size="sm" className="gap-2 hidden sm:flex">
                 Get Started
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
+
             <UserButton />
+            
           </SignedIn>
           <SignedOut>
             <SignInButton mode="modal">
@@ -80,6 +88,13 @@ export function Nav() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Visualizer
+            </Link>
+            <Link
+              href="/secure-flow"
+              className="block text-base font-medium hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              BlockChain
             </Link>
             <Link
               href="/dashboard"
