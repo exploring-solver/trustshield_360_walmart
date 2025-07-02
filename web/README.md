@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TrustShield 360 Web Dashboard
+
+A Next.js 14 web application for Walmart's TrustShield 360 platform, providing a unified cybersecurity dashboard with AI-powered fraud detection, quantum-safe cryptography, and blockchain-backed transaction logging.
+
+## Features
+
+- **Security Dashboard**: View risk scores, security alerts, active sessions, and recent activity logs.
+- **Secure Transaction Flow**: Simulate a transaction lifecycle with quantum-safe handshake, AI fraud analysis, and blockchain logging.
+- **AI Fraud Cortex**: Analyze transactions in real-time for fraud risk using advanced AI models.
+- **Blockchain Logging**: Immutable, auditable storage of verified transactions on-chain.
+- **Vision Guard**: Visual threat detection and monitoring (demo component).
+- **Fraud Graph Visualization**: Interactive graph of fraud rings and suspicious activity.
+- **Wallet Integration**: Demo wallet UI for blockchain interactions.
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the development server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+- `src/app/(main)/dashboard` — Security dashboard overview
+- `src/app/(main)/secure-flow` — End-to-end secure transaction simulation
+- `src/app/(main)/visualization` — Fraud graph, AI cortex demo, vision guard
+- `src/components/` — UI components and feature modules
+- `src/app/api/` — API routes for blockchain, AI, and security integrations
+
+## Tech Stack
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Lucide React Icons
+- Custom UI components
 
 ## Learn More
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Walmart Sparkathon](https://walmart.converge.tech/content/converge/en_in/sparkathon/building-trust-in-retail-with-cybersecurity.html)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by Team Shoplifters for Walmart Sparkathon'25.
