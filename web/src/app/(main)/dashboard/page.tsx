@@ -9,6 +9,7 @@ import { RiskScoreIndicator } from "@/components/dashboard/risk-score-indicator"
 import { SecurityAlerts } from "@/components/dashboard/security-alerts";
 import { ActivityLogTable } from "@/components/dashboard/activity-log-table";
 import { ActiveSessions } from "@/components/dashboard/active-sessions";
+import AdaptiveCheckoutButton from "@/components/adaptive-checkout-button";
 
 export default async function DashboardPage() {
   const data = await getSecurityData();
@@ -86,6 +87,9 @@ export default async function DashboardPage() {
                     <ActivityLogTable activities={data.activityLog} />
                 </CardContent>
             </Card>
+            <div className="lg:col-span-2 space-y-8">
+              <AdaptiveCheckoutButton />
+            </div>
         </div>
       </div>
     </div>

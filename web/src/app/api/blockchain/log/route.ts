@@ -22,13 +22,25 @@ export async function POST(request: Request) {
     // Create a signer instance using a private key from one of the Hardhat accounts
     const signer = new ethers.Wallet(process.env.BLOCKCHAIN_SIGNER_PRIVATE_KEY!, provider);
 
+    // Check wallet balance before attempting transaction
+    const balance = await provider.getBalance(signer.address);
+    const estimatedGas = ethers.parseUnits("0.001", "ether"); // Rough estimate
+    
+    if (balance < estimatedGas) {
+      console.error(`Insufficient funds. Balance: ${ethers.formatEther(balance)} ETH, Required: ~${ethers.formatEther(estimatedGas)} ETH`);
+      return NextResponse.json({ 
+        error: 'Insufficient blockchain funds. Please run the funding script first.',
+        details: `Wallet balance: ${ethers.formatEther(balance)} ETH`
+      }, { status: 402 }); // Payment Required
+    }
+
     // Create an instance of the contract
     const contract = new ethers.Contract(
       process.env.NEXT_PUBLIC_BLOCKCHAIN_CONTRACT_ADDRESS!,
       TransactionLedgerABI.abi,
       signer
     );
-    // const amountInCents = Math.round(Number(amount) * 100);
+
     // Call the smart contract function to log the transaction
     const tx = await contract.logTransaction(
       transactionId,
@@ -47,6 +59,15 @@ export async function POST(request: Request) {
 
   } catch (error: any) {
     console.error('Blockchain logging error:', error);
+    
+    // Check if it's a funding issue
+    if (error.message && error.message.includes("doesn't have enough funds")) {
+      return NextResponse.json({ 
+        error: 'Blockchain wallet needs funding. Please run the funding script.',
+        details: 'The wallet used for blockchain transactions has insufficient funds.'
+      }, { status: 402 });
+    }
+    
     return NextResponse.json({ error: 'Failed to log transaction.', details: error.message }, { status: 500 });
   }
 }
