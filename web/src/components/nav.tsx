@@ -40,25 +40,25 @@ export function Nav() {
   const trustShieldRoutes = [
     {
       name: "Checkout Demo",
-      href: "/trustshield/checkout",
+      href: "/checkout",
       icon: ShoppingCart,
       description: "Secure payment flow demo"
     },
     {
       name: "Admin Dashboard", 
-      href: "/trustshield/admin",
+      href: "/admin-dashboard",
       icon: Settings,
       description: "Real-time security monitoring"
     },
     {
       name: "Blockchain Explorer",
-      href: "/trustshield/explorer", 
+      href: "/explorer", 
       icon: Database,
       description: "Transaction ledger explorer"
     },
     {
       name: "Digital Wallet",
-      href: "/trustshield/wallet",
+      href: "/wallet",
       icon: Wallet,
       description: "Verifiable credentials wallet"
     }
@@ -132,7 +132,7 @@ export function Nav() {
             </DropdownMenu>
 
             {/* Get Started Button */}
-            <Link href="/trustshield/checkout">
+            <Link href="/checkout">
               <Button size="sm" className="gap-2 hidden sm:flex">
                 Try Demo
                 <ArrowRight className="h-4 w-4" />

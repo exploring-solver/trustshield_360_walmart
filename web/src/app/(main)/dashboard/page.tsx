@@ -162,7 +162,7 @@ export default async function DashboardPage() {
                 <CardTitle>Security Activity Log</CardTitle>
               </div>
               <CardDescription>
-                Recent security events on your account. Click "Analyze" to check IP reputation using live threat
+                Recent security events on your account. Click &ldquo;Analyz&ldquo; to check IP reputation using live threat
                 intelligence.
               </CardDescription>
             </CardHeader>
