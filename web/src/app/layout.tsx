@@ -15,7 +15,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shoplifters",
+  title: "TrustShield 360",
   description: "Shoplifters Walmart",
   icons: {
     icon: "/favicon.ico",
