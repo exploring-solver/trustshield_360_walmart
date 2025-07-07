@@ -12,7 +12,8 @@ import {
   Settings, 
   Wallet,
   Database,
-  Brain
+  Brain,
+  Bot
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -61,6 +62,12 @@ export function Nav() {
       href: "/wallet",
       icon: Wallet,
       description: "Verifiable credentials wallet"
+    },
+    {
+      name: "TrustBot",
+      href: "/trust-bot",
+      icon: Bot,
+      description: "AI assistant for security events"
     }
   ];
 
