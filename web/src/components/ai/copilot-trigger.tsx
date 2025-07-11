@@ -36,8 +36,8 @@ export function CopilotTrigger({ event }: CopilotTriggerProps) {
           Ask AI
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-[400px] sm:w-[600px] p-0 flex flex-col bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-slate-200 dark:border-slate-800">
-        <SheetHeader className="p-6 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-accent to-accent/50 dark:from-accent/30 dark:to-accent/20">
+      <SheetContent className="w-[400px] sm:w-[600px] p-0 flex flex-col bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-slate-200 dark:border-slate-800 h-full">
+        <SheetHeader className="flex-shrink-0 p-6 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-accent to-accent/50 dark:from-accent/30 dark:to-accent/20">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent-foreground rounded-xl flex items-center justify-center shadow-lg">
               <Shield className="w-5 h-5 text-white" />
@@ -65,7 +65,9 @@ export function CopilotTrigger({ event }: CopilotTriggerProps) {
           </div>
         </SheetHeader>
         {/* The chat component is rendered inside the sheet, receiving the event context */}
-        <CopilotChat event={event} />
+        <div className="flex-1 min-h-0">
+          <CopilotChat event={event} />
+        </div>
       </SheetContent>
     </Sheet>
   )

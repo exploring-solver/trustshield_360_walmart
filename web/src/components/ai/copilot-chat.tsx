@@ -2,7 +2,7 @@
 "use client"
 
 import { useChat } from "ai/react"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -26,6 +26,8 @@ interface CopilotChatProps {
 }
 
 export function CopilotChat({ event }: CopilotChatProps) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
   // Format the initial event data into a string for the first message
   const initialMessageContent = `Explain this security event for me: \n\`\`\`json\n${JSON.stringify(
     event,
@@ -45,6 +47,13 @@ export function CopilotChat({ event }: CopilotChatProps) {
       },
     ],
   })
+
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    }
+  }, [messages])
 
   // This effect clears the chat if the user opens a new event
   useEffect(() => {
@@ -69,7 +78,7 @@ export function CopilotChat({ event }: CopilotChatProps) {
   return (
     <div className="flex flex-col h-full bg-gradient-to-b from-accent/50 to-white dark:from-slate-900/50 dark:to-slate-950">
       {/* Event Context Header */}
-      <div className="p-4 border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
+      <div className="flex-shrink-0 p-4 border-b bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <div
@@ -125,8 +134,8 @@ export function CopilotChat({ event }: CopilotChatProps) {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-hidden">
-        <ScrollArea className="h-full">
+      <div className="flex-1 min-h-0">
+        <ScrollArea className="h-full" ref={scrollRef}>
           <div className="p-4 space-y-4">
             {messages.map((m) =>
               // Hide the initial prompt for a cleaner UI
@@ -191,7 +200,7 @@ export function CopilotChat({ event }: CopilotChatProps) {
       </div>
 
       {/* Input Form */}
-      <div className="p-4 border-t bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
+      <div className="flex-shrink-0 p-4 border-t bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
         <form onSubmit={handleSubmit} className="flex items-center gap-3">
           <div className="flex-1 relative">
             <Input
