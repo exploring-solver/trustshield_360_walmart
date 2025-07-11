@@ -53,13 +53,13 @@ export function Nav() {
     },
     {
       name: "Blockchain Explorer",
-      href: "/explorer", 
+      href: "/blockchain-explorer", 
       icon: Database,
       description: "Transaction ledger explorer"
     },
     {
       name: "Digital Wallet",
-      href: "/wallet",
+      href: "/wallet-ui",
       icon: Wallet,
       description: "Verifiable credentials wallet"
     },
@@ -101,7 +101,7 @@ export function Nav() {
             {/* TrustShield Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="hidden md:flex gap-2">
+                <Button  size="sm" className="hidden md:flex gap-2">
                   <Shield className="h-4 w-4" />
                   TrustShield 360
                   <Badge variant="secondary" className="ml-1 text-xs">
@@ -138,13 +138,13 @@ export function Nav() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Get Started Button */}
+            {/* Get Started Button
             <Link href="/checkout">
               <Button size="sm" className="gap-2 hidden sm:flex">
                 Try Demo
                 <ArrowRight className="h-4 w-4" />
               </Button>
-            </Link>
+            </Link> */}
 
             <UserButton />
             
