@@ -41,9 +41,11 @@ program
     }
 
     const spinner = ora('Tracing transaction through security pipeline...').start();
-    
+
+    const url = `${API_BASE}/trace/${options.tx}`;
+    console.log(chalk.gray(`[LOG] GET ${url}`));
     try {
-      const response = await axios.get(`${API_BASE}/trace/${options.tx}`);
+      const response = await axios.get(url);
       const trace = response.data;
       
       spinner.succeed('Transaction trace complete');
@@ -82,6 +84,10 @@ program
     } catch (error) {
       spinner.fail('Failed to trace transaction');
       console.log(chalk.red(`❌ Error: ${(error as any).message}`));
+      if (error && (error as any).response) {
+        console.log(chalk.red(`[LOG] Response: ${JSON.stringify((error as any).response.data)}`));
+      }
+      console.log(chalk.red(`[LOG] Stack: ${(error as any).stack}`));
     }
   });
 
@@ -98,10 +104,12 @@ program
     }
 
     const spinner = ora('Running AI risk analysis...').start();
-    
+
+    const endpoint = options.tx ? `risk/transaction/${options.tx}` : `risk/user/${options.user}`;
+    const url = `${API_BASE}/${endpoint}`;
+    console.log(chalk.gray(`[LOG] GET ${url}`));
     try {
-      const endpoint = options.tx ? `risk/transaction/${options.tx}` : `risk/user/${options.user}`;
-      const response = await axios.get(`${API_BASE}/${endpoint}`);
+      const response = await axios.get(url);
       const risk = response.data;
       
       spinner.succeed('Risk analysis complete');
@@ -135,6 +143,10 @@ program
     } catch (error) {
       spinner.fail('Risk analysis failed');
       console.log(chalk.red(`❌ Error: ${(error as any).message}`));
+      if (error && (error as any).response) {
+        console.log(chalk.red(`[LOG] Response: ${JSON.stringify((error as any).response.data)}`));
+      }
+      console.log(chalk.red(`[LOG] Stack: ${(error as any).stack}`));
     }
   });
 
@@ -158,12 +170,16 @@ program
     }
 
     const spinner = ora('Revoking verifiable credential...').start();
-    
+
+    const url = `${API_BASE}/credentials/revoke`;
+    const payload = {
+      credentialId: options.vc,
+      reason: options.reason || 'Admin revocation'
+    };
+    console.log(chalk.gray(`[LOG] POST ${url}`));
+    console.log(chalk.gray(`[LOG] Payload: ${JSON.stringify(payload)}`));
     try {
-      await axios.post(`${API_BASE}/credentials/revoke`, {
-        credentialId: options.vc,
-        reason: options.reason || 'Admin revocation'
-      });
+      await axios.post(url, payload);
       
       spinner.succeed('Credential revoked successfully');
       
@@ -177,6 +193,10 @@ program
     } catch (error) {
       spinner.fail('Failed to revoke credential');
       console.log(chalk.red(`❌ Error: ${(error as any).message}`));
+      if (error && (error as any).response) {
+        console.log(chalk.red(`[LOG] Response: ${JSON.stringify((error as any).response.data)}`));
+      }
+      console.log(chalk.red(`[LOG] Stack: ${(error as any).stack}`));
     }
   });
 
@@ -197,13 +217,16 @@ program
     
     try {
       if (options.freeze || options.unfreeze) {
-        await axios.post(`${API_BASE}/wallet/${options.freeze ? 'freeze' : 'unfreeze'}`, {
-          userId: options.user
-        });
-        
+        const url = `${API_BASE}/wallet/${options.freeze ? 'freeze' : 'unfreeze'}`;
+        const payload = { userId: options.user };
+        console.log(chalk.gray(`[LOG] POST ${url}`));
+        console.log(chalk.gray(`[LOG] Payload: ${JSON.stringify(payload)}`));
+        await axios.post(url, payload);
         spinner.succeed(`Wallet ${options.freeze ? 'frozen' : 'unfrozen'} successfully`);
       } else {
-        const response = await axios.get(`${API_BASE}/wallet/${options.user}`);
+        const url = `${API_BASE}/wallet/${options.user}`;
+        console.log(chalk.gray(`[LOG] GET ${url}`));
+        const response = await axios.get(url);
         const wallet = response.data;
         
         spinner.succeed('Wallet status retrieved');
@@ -225,6 +248,10 @@ program
     } catch (error) {
       spinner.fail('Wallet operation failed');
       console.log(chalk.red(`❌ Error: ${(error as any).message}`));
+      if (error && (error as any).response) {
+        console.log(chalk.red(`[LOG] Response: ${JSON.stringify((error as any).response.data)}`));
+      }
+      console.log(chalk.red(`[LOG] Stack: ${(error as any).stack}`));
     }
   });
 

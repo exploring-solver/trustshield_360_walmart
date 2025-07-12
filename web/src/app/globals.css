@@ -159,5 +159,10 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+@media (width >= 40rem) {
+  #radix-\«Rferbl7\» {
+    max-width: 800px !important;
+  }
+}
 
 @layer theme, base, clerk, components, utilities;

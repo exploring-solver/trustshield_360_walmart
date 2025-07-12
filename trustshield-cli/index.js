@@ -57,7 +57,7 @@ program
     .option('-t, --tx <txId>', 'Transaction ID to trace')
     .option('-v, --verbose', 'Show detailed trace information')
     .action(function (options) { return __awaiter(void 0, void 0, void 0, function () {
-    var spinner, response, trace, error_1;
+    var spinner, url, response, trace, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -67,10 +67,12 @@ program
                     return [2 /*return*/];
                 }
                 spinner = (0, ora_1.default)('Tracing transaction through security pipeline...').start();
+                url = "".concat(API_BASE, "/trace/").concat(options.tx);
+                console.log(chalk_1.default.gray("[LOG] GET ".concat(url)));
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, axios_1.default.get("".concat(API_BASE, "/trace/").concat(options.tx))];
+                return [4 /*yield*/, axios_1.default.get(url)];
             case 2:
                 response = _a.sent();
                 trace = response.data;
@@ -105,6 +107,10 @@ program
                 error_1 = _a.sent();
                 spinner.fail('Failed to trace transaction');
                 console.log(chalk_1.default.red("\u274C Error: ".concat(error_1.message)));
+                if (error_1 && error_1.response) {
+                    console.log(chalk_1.default.red("[LOG] Response: ".concat(JSON.stringify(error_1.response.data))));
+                }
+                console.log(chalk_1.default.red("[LOG] Stack: ".concat(error_1.stack)));
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
@@ -117,7 +123,7 @@ program
     .option('-t, --tx <txId>', 'Transaction ID to analyze')
     .option('-u, --user <userId>', 'User ID to analyze')
     .action(function (options) { return __awaiter(void 0, void 0, void 0, function () {
-    var spinner, endpoint, response, risk, error_2;
+    var spinner, endpoint, url, response, risk, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -126,11 +132,13 @@ program
                     return [2 /*return*/];
                 }
                 spinner = (0, ora_1.default)('Running AI risk analysis...').start();
+                endpoint = options.tx ? "risk/transaction/".concat(options.tx) : "risk/user/".concat(options.user);
+                url = "".concat(API_BASE, "/").concat(endpoint);
+                console.log(chalk_1.default.gray("[LOG] GET ".concat(url)));
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                endpoint = options.tx ? "risk/transaction/".concat(options.tx) : "risk/user/".concat(options.user);
-                return [4 /*yield*/, axios_1.default.get("".concat(API_BASE, "/").concat(endpoint))];
+                return [4 /*yield*/, axios_1.default.get(url)];
             case 2:
                 response = _a.sent();
                 risk = response.data;
@@ -161,6 +169,10 @@ program
                 error_2 = _a.sent();
                 spinner.fail('Risk analysis failed');
                 console.log(chalk_1.default.red("\u274C Error: ".concat(error_2.message)));
+                if (error_2 && error_2.response) {
+                    console.log(chalk_1.default.red("[LOG] Response: ".concat(JSON.stringify(error_2.response.data))));
+                }
+                console.log(chalk_1.default.red("[LOG] Stack: ".concat(error_2.stack)));
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
@@ -174,7 +186,7 @@ program
     .option('--reason <reason>', 'Reason for revocation')
     .option('--force', 'Force revocation without confirmation')
     .action(function (options) { return __awaiter(void 0, void 0, void 0, function () {
-    var spinner, error_3;
+    var spinner, url, payload, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -188,13 +200,17 @@ program
                     return [2 /*return*/];
                 }
                 spinner = (0, ora_1.default)('Revoking verifiable credential...').start();
+                url = "".concat(API_BASE, "/credentials/revoke");
+                payload = {
+                    credentialId: options.vc,
+                    reason: options.reason || 'Admin revocation'
+                };
+                console.log(chalk_1.default.gray("[LOG] POST ".concat(url)));
+                console.log(chalk_1.default.gray("[LOG] Payload: ".concat(JSON.stringify(payload))));
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, axios_1.default.post("".concat(API_BASE, "/credentials/revoke"), {
-                        credentialId: options.vc,
-                        reason: options.reason || 'Admin revocation'
-                    })];
+                return [4 /*yield*/, axios_1.default.post(url, payload)];
             case 2:
                 _a.sent();
                 spinner.succeed('Credential revoked successfully');
@@ -209,6 +225,10 @@ program
                 error_3 = _a.sent();
                 spinner.fail('Failed to revoke credential');
                 console.log(chalk_1.default.red("\u274C Error: ".concat(error_3.message)));
+                if (error_3 && error_3.response) {
+                    console.log(chalk_1.default.red("[LOG] Response: ".concat(JSON.stringify(error_3.response.data))));
+                }
+                console.log(chalk_1.default.red("[LOG] Stack: ".concat(error_3.stack)));
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
@@ -222,7 +242,7 @@ program
     .option('--freeze', 'Freeze the wallet')
     .option('--unfreeze', 'Unfreeze the wallet')
     .action(function (options) { return __awaiter(void 0, void 0, void 0, function () {
-    var spinner, response, wallet, error_4;
+    var spinner, url, payload, url, response, wallet, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -235,14 +255,19 @@ program
             case 1:
                 _a.trys.push([1, 6, , 7]);
                 if (!(options.freeze || options.unfreeze)) return [3 /*break*/, 3];
-                return [4 /*yield*/, axios_1.default.post("".concat(API_BASE, "/wallet/").concat(options.freeze ? 'freeze' : 'unfreeze'), {
-                        userId: options.user
-                    })];
+                url = "".concat(API_BASE, "/wallet/").concat(options.freeze ? 'freeze' : 'unfreeze');
+                payload = { userId: options.user };
+                console.log(chalk_1.default.gray("[LOG] POST ".concat(url)));
+                console.log(chalk_1.default.gray("[LOG] Payload: ".concat(JSON.stringify(payload))));
+                return [4 /*yield*/, axios_1.default.post(url, payload)];
             case 2:
                 _a.sent();
                 spinner.succeed("Wallet ".concat(options.freeze ? 'frozen' : 'unfrozen', " successfully"));
                 return [3 /*break*/, 5];
-            case 3: return [4 /*yield*/, axios_1.default.get("".concat(API_BASE, "/wallet/").concat(options.user))];
+            case 3:
+                url = "".concat(API_BASE, "/wallet/").concat(options.user);
+                console.log(chalk_1.default.gray("[LOG] GET ".concat(url)));
+                return [4 /*yield*/, axios_1.default.get(url)];
             case 4:
                 response = _a.sent();
                 wallet = response.data;
@@ -264,6 +289,10 @@ program
                 error_4 = _a.sent();
                 spinner.fail('Wallet operation failed');
                 console.log(chalk_1.default.red("\u274C Error: ".concat(error_4.message)));
+                if (error_4 && error_4.response) {
+                    console.log(chalk_1.default.red("[LOG] Response: ".concat(JSON.stringify(error_4.response.data))));
+                }
+                console.log(chalk_1.default.red("[LOG] Stack: ".concat(error_4.stack)));
                 return [3 /*break*/, 7];
             case 7: return [2 /*return*/];
         }

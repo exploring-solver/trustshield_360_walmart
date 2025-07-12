@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request, { params }: { params: { txId: string } }) {
   const { txId } = params;
   
-  // Mock trace data
+  // Mock trace data 
   const mockTrace = {
     transactionId: txId,
     amount: 125.50,
@@ -28,7 +28,7 @@ export async function GET(request: Request, { params }: { params: { txId: string
         duration: 2100,
         details: txId.includes('fraud') ? 'High risk score: 0.92' : 'Low risk score: 0.15'
       },
-  t    {
+      {
         name: 'Zero Trust Validation',
         success: !txId.includes('fraud'),
         duration: 600,

@@ -40,7 +40,7 @@ export function Footer() {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            Powered by Groq AI • © {new Date().getFullYear()} VideoTransform • Made with ❤️ by TrustShield 360
+            Made with ❤️ by Team KAPA • © {new Date().getFullYear()}
           </div>
         </div>
       </div>
