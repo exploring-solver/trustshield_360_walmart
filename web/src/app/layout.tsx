@@ -31,7 +31,7 @@ export default function RootLayout({
      <ClerkProvider>
       <html lang="en" suppressHydrationWarning={true} className="!scroll-smooth">
         <body
-          className={`${inter.variable}  ${jetBrainsMono.variable} antialiased `}
+          className={`${inter.variable}  ${jetBrainsMono.variable} antialiased `} suppressHydrationWarning={true}
         >
           <Providers>
             {children}

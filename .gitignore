@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 
 node_modules/
 tbd
+=======
+.env
+node_modules/
+>>>>>>> 90cc847d4e831d8cdff3306b3249c304fce1ef36

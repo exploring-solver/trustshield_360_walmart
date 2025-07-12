@@ -12,7 +12,8 @@ import {
   Settings, 
   Wallet,
   Database,
-  Brain
+  Brain,
+  Bot
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -52,7 +53,7 @@ export function Nav() {
     },
     {
       name: "Blockchain Explorer",
-      href: "/explorer", 
+      href: "/blockchain-explorer", 
       icon: Database,
       description: "Transaction ledger explorer"
     },
@@ -61,6 +62,12 @@ export function Nav() {
       href: "/wallet-ui",
       icon: Wallet,
       description: "Verifiable credentials wallet"
+    },
+    {
+      name: "TrustBot",
+      href: "/trust-bot",
+      icon: Bot,
+      description: "AI assistant for security events"
     },
     {
       name: "AI Cortex",
@@ -112,7 +119,7 @@ export function Nav() {
             {/* TrustShield Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="hidden md:flex gap-2">
+                <Button  size="sm" className="hidden md:flex gap-2">
                   <Shield className="h-4 w-4" />
                   TrustShield 360
                   <Badge variant="secondary" className="ml-1 text-xs">
@@ -155,7 +162,7 @@ export function Nav() {
                 Try Demo
                 <ArrowRight className="h-4 w-4" />
               </Button>
-            </Link>
+            </Link> */
 
             <UserButton />
             

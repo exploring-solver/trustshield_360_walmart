@@ -28,7 +28,7 @@ export async function GET(request: Request, { params }: { params: { txId: string
         duration: 2100,
         details: txId.includes('fraud') ? 'High risk score: 0.92' : 'Low risk score: 0.15'
       },
-      {
+  {
         name: 'Zero Trust Validation',
         success: !txId.includes('fraud'),
         duration: 600,

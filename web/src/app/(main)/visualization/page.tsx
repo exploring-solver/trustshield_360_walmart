@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"
 
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
 import FraudGraphWrapper from "@/components/fraud-graph-wrapper"
 import VisionGuardUI from "@/components/vision-guard-ui"
 import WalletUI from "@/components/wallet-ui"
@@ -8,9 +8,10 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Info, Shield, Brain, Eye, TrendingUp } from "lucide-react"
+import React from "react"
 
 // Mock Cortex Caller component for demonstration
-async function CortexDemo() {
+function CortexDemo() {
   // A normal transaction
   const normalTransaction = {
     id: "txn_123",
@@ -46,8 +47,39 @@ async function CortexDemo() {
     return res.json()
   }
 
-  const normalResult = await analyze(normalTransaction)
-  const fraudResult = await analyze(fraudTransaction)
+  const [normalResult, setNormalResult] = React.useState<any>(null)
+  const [fraudResult, setFraudResult] = React.useState<any>(null)
+  const [loading, setLoading] = React.useState(true)
+
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        const normal = await analyze(normalTransaction)
+        const fraud = await analyze(fraudTransaction)
+        setNormalResult(normal)
+        setFraudResult(fraud)
+      } catch (error) {
+        console.error("Error analyzing transactions:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchResults()
+  }, [])
+
+  if (loading) {
+    return (
+      <Card className="w-full">
+        <CardContent className="flex items-center justify-center h-64">
+          <div className="text-center">
+            <Brain className="h-8 w-8 animate-pulse text-primary mx-auto mb-2" />
+            <p className="text-muted-foreground">Loading AI Cortex Analysis...</p>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
 
   return (
     <Card className="w-full">
@@ -77,11 +109,11 @@ async function CortexDemo() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{normalResult.riskScore}</div>
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{normalResult?.riskScore}</div>
               <div className="text-sm text-muted-foreground">Risk Score</div>
             </div>
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
-              <div className="text-lg font-semibold text-green-600 dark:text-green-400">{normalResult.status}</div>
+              <div className="text-lg font-semibold text-green-600 dark:text-green-400">{normalResult?.status}</div>
               <div className="text-sm text-muted-foreground">Status</div>
             </div>
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
@@ -92,7 +124,7 @@ async function CortexDemo() {
 
           <div className="p-3 bg-white dark:bg-gray-800 rounded-lg border">
             <p className="text-sm font-medium mb-2">Analysis Summary:</p>
-            <p className="text-sm text-muted-foreground">{normalResult.explanations.join(" ")}</p>
+            <p className="text-sm text-muted-foreground">{normalResult?.explanations?.join(" ")}</p>
           </div>
         </div>
 
@@ -105,11 +137,11 @@ async function CortexDemo() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
-              <div className="text-2xl font-bold text-red-600 dark:text-red-400">{fraudResult.riskScore}</div>
+              <div className="text-2xl font-bold text-red-600 dark:text-red-400">{fraudResult?.riskScore}</div>
               <div className="text-sm text-muted-foreground">Risk Score</div>
             </div>
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
-              <div className="text-lg font-semibold text-red-600 dark:text-red-400">{fraudResult.status}</div>
+              <div className="text-lg font-semibold text-red-600 dark:text-red-400">{fraudResult?.status}</div>
               <div className="text-sm text-muted-foreground">Status</div>
             </div>
             <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg border">
@@ -121,7 +153,7 @@ async function CortexDemo() {
           <div className="p-3 bg-white dark:bg-gray-800 rounded-lg border">
             <p className="text-sm font-medium mb-2">Risk Factors Detected:</p>
             <ul className="space-y-1">
-              {fraudResult.explanations.map((exp: string, i: number) => (
+              {fraudResult?.explanations?.map((exp: string, i: number) => (
                 <li key={i} className="text-sm text-muted-foreground flex items-start">
                   <span className="text-red-500 mr-2">•</span>
                   {exp}
@@ -136,6 +168,28 @@ async function CortexDemo() {
 }
 
 export default function DashboardPage() {
+  useEffect(() => {
+    const seedGraph = async () => {
+      try {
+        const baseUrl = process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
+        const response = await fetch(`${baseUrl}/api/seed-graph`, {
+          method: "GET",
+          cache: "no-store",
+        })
+        
+        if (response.ok) {
+          console.log("Graph seeded successfully")
+        } else {
+          console.error("Failed to seed graph")
+        }
+      } catch (error) {
+        console.error("Error seeding graph:", error)
+      }
+    }
+
+    seedGraph()
+  }, [])
+
   return (
     <main className="container mx-auto p-4 md:p-8 min-h-screen">
       {/* Header Section */}

@@ -1,0 +1,7 @@
+{"timestamp": "2025-06-23T10:00:00Z", "transaction_id": "FR001", "source_id": "RING_A1", "target_id": "RING_A2", "amount": 500.00, "channel": "web", "ring_id": "ALPHA", "is_fraud": true}
+{"timestamp": "2025-06-23T10:05:00Z", "transaction_id": "FR002", "source_id": "RING_A2", "target_id": "RING_A3", "amount": 450.00, "channel": "web", "ring_id": "ALPHA", "is_fraud": true}
+{"timestamp": "2025-06-23T10:10:00Z", "transaction_id": "FR003", "source_id": "RING_A3", "target_id": "RING_A4", "amount": 400.00, "channel": "web", "ring_id": "ALPHA", "is_fraud": true}
+{"timestamp": "2025-06-23T10:15:00Z", "transaction_id": "FR004", "source_id": "RING_A4", "target_id": "RING_A1", "amount": 350.00, "channel": "web", "ring_id": "ALPHA", "is_fraud": true}
+{"timestamp": "2025-06-23T11:00:00Z", "transaction_id": "FR005", "source_id": "RING_B1", "target_id": "RING_B2", "amount": 1000.00, "channel": "mobile", "ring_id": "BETA", "is_fraud": true}
+{"timestamp": "2025-06-23T11:05:00Z", "transaction_id": "FR006", "source_id": "RING_B2", "target_id": "RING_B3", "amount": 950.00, "channel": "mobile", "ring_id": "BETA", "is_fraud": true}
+{"timestamp": "2025-06-23T11:10:00Z", "transaction_id": "FR007", "source_id": "RING_B3", "target_id": "RING_B1", "amount": 900.00, "channel": "mobile", "ring_id": "BETA", "is_fraud": true} 
