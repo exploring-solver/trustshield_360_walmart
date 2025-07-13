@@ -57,7 +57,7 @@ export default function ZeroTrustDemoPage() {
   const currentScenario = scenarios[selectedScenario]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen ">
       <div className="container mx-auto max-w-4xl p-4 md:p-8">
         {/* Header */}
         <div className="text-center mb-8">

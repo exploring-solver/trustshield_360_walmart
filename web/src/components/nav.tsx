@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'; 
 import Link from "next/link";
 import { 
@@ -15,7 +16,6 @@ import {
   Brain,
   Bot,
   DecimalsArrowLeft,
-  ArrowDownLeftFromSquareIcon,
   ArrowUpRightFromSquareIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,40 +44,41 @@ export function Nav() {
   const trustShieldRoutes = [
     {
       name: "Demo Visualization",
-      href: "/demo",
+      href: "/visualization",
       icon: ArrowUpRightFromSquareIcon,
       description: "Demonstration of security features"
     },
     {
-      name: "TrustBot",
+      name: "Checkout Demo ⭐",
+      href: "/checkout",
+      icon: ShoppingCart,
+      description: "Secure payment flow demo"
+    },
+    {
+      name: "TrustBot ⭐",
       href: "/trust-bot",
       icon: Bot,
       description: "AI assistant for security events"
     },
     {
-      name: "AI Cortex",
+      name: "AI Cortex ⭐",
       href: "/ai-cortex",
       icon: Brain,
       description: "Intelligent threat detection"
     },
-    {
-      name: "Wallet Freeze System",
-      href: "/wallet-freeze-system",
-      icon: Shield,
-      description: "Emergency wallet protection"
-    },
+    // {
+    //   name: "Wallet Freeze System",
+    //   href: "/wallet-freeze-system",
+    //   icon: Shield,
+    //   description: "Emergency wallet protection"
+    // },
     {
       name: "Zero Trust Challenge",
       href: "/zero-trust-challenge",
       icon: Eye,
       description: "Advanced security validation"
     },
-    {
-      name: "Checkout Demo",
-      href: "/checkout",
-      icon: ShoppingCart,
-      description: "Secure payment flow demo"
-    },
+    
     {
       name: "Admin Dashboard", 
       href: "/admin-dashboard",
@@ -118,16 +119,16 @@ export function Nav() {
                 Demo Page
               </Button>
             </Link>
-            {/* <Link href="/visualization">
-              <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
-                <Eye className="h-4 w-4" />
-                Visualizer
-              </Button>
-            </Link> */}
+              {/* <Link href="/visualization">
+                <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
+                  <Eye className="h-4 w-4" />
+                  Visualizer
+                </Button>
+              </Link> */}
             <Link href="/secure-flow">
               <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
                 <Blocks className="h-4 w-4" />
-                BlockChain
+                BlockChain&apos;s Flow
               </Button>
             </Link>
 
@@ -172,12 +173,12 @@ export function Nav() {
             </DropdownMenu>
 
             {/* Get Started Button */}
-            <Link href="/checkout">
-              <Button size="sm" className="gap-2 hidden sm:flex">
-                Try Demo
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link> 
+              {/* <Link href="/checkout">
+                <Button size="sm" className="gap-2 hidden sm:flex">
+                  Try Demo
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>  */}
 
             <UserButton />
             
@@ -216,13 +217,13 @@ export function Nav() {
           
           <SignedIn>
             {/* Legacy Routes */}
-            <Link
+            {/* <Link
               href="/visualization"
               className="block text-base font-medium hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Visualizer
-            </Link>
+            </Link> */}
             <Link
               href="/secure-flow"
               className="block text-base font-medium hover:text-primary transition-colors"

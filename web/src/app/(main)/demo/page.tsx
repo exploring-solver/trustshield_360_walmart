@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -140,7 +142,7 @@ export default function TrustShieldShowcase() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen  ">
       <div className="container mx-auto max-w-7xl p-4 md:p-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -291,7 +293,7 @@ export default function TrustShieldShowcase() {
                   <AlertTitle>Live Demo</AlertTitle>
                   <AlertDescription>
                     This system monitors for fraud patterns and automatically freezes wallets when threats are detected.
-                    Click "Simulate Fraud Alert" to see the system in action.
+                    Click &quot;Simulate Fraud Alert&quot; to see the system in action.
                   </AlertDescription>
                 </Alert>
 

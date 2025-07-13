@@ -231,7 +231,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen ">
       <div className="container mx-auto max-w-6xl p-4 md:p-8">
         {/* Header */}
         <div className="text-center mb-8">

@@ -202,7 +202,7 @@ export default function DashboardPage() {
           </Badge>
         </div>
         <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          ShopLifter&apos;s 360
+          TrustShield&apos;s 360
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           A unified view of next-generation retail security powered by quantum-safe cryptography, AI fraud detection,

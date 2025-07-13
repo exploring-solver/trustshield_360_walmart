@@ -61,7 +61,7 @@ export default function CopilotDemoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-accent/30 to-accent/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900">
+    <div className="min-h-screen ">
       <main className="container mx-auto p-4 md:p-8">
         {/* Enhanced Header */}
         <div className="mb-8 space-y-4">

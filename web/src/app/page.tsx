@@ -41,57 +41,72 @@ export default function Home() {
         </section>
         {/* Threats Section */}
         <section id="threats" className="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-background">
-          <div className="w-full max-w-6xl px-4 md:px-8 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-6 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 text-primary px-4 py-1 text-sm font-medium">Key Cybersecurity Threats</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Cyber Battlefield in Retail</h2>
-                <p className="max-w-3xl text-muted-foreground md:text-xl">
-                  The retail sector is a prime target for cybercriminals. Here are some of the most significant threats we face:
-                </p>
+            <div className="w-full max-w-6xl px-4 md:px-8 mx-auto">
+              <div className="flex flex-col items-center justify-center space-y-6 text-center">
+                <div className="space-y-2">
+                  <div className="inline-block rounded-lg bg-primary/10 text-primary px-4 py-1 text-sm font-medium">Key Cybersecurity Threats</div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Cyber Battlefield in Retail</h2>
+                  <p className="max-w-3xl text-muted-foreground md:text-xl">
+                    The retail sector is a prime target for cybercriminals. Here are some of the most significant threats we face:
+                  </p>
+                </div>
+                {/* TrustBot Plugin */}
+                <div className="mt-6 flex flex-col items-center">
+                  <a
+                    href="/trust-bot"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold shadow hover:bg-primary/90 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zm0 0V7m0 4v4m-4-4c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zm0 0V7m0 4v4m8-4c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zm0 0V7m0 4v4" />
+                    </svg>
+                    Learn More with TrustBot
+                  </a>
+                  <span className="mt-2 text-sm text-muted-foreground">
+                    Get instant AI-powered insights and recommendations for any threat.
+                  </span>
+                </div>
+              </div>
+              <div className="mx-auto grid max-w-4xl items-center gap-10 py-12 lg:grid-cols-2 lg:gap-20">
+                <div className="flex flex-col justify-center space-y-6">
+                  <ul className="grid gap-8">
+                    <li>
+                      <div className="grid gap-2">
+                        <h3 className="text-xl font-semibold text-primary">Credential Phishing</h3>
+                        <p className="text-muted-foreground">
+                          58% of attacks target login credentials, often via sophisticated phishing schemes.
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="grid gap-2">
+                        <h3 className="text-xl font-semibold text-primary">Malware and Ransomware</h3>
+                        <p className="text-muted-foreground">
+                          These attacks disrupt operations and target sensitive payment/customer data.
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="grid gap-2">
+                        <h3 className="text-xl font-semibold text-primary">DDoS Attacks</h3>
+                        <p className="text-muted-foreground">
+                          Aim to overwhelm retail networks, especially during peak seasons.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="flex items-center justify-center">
+                  <Image
+                    alt="Threats Illustration"
+                    className="aspect-video rounded-xl object-cover object-center shadow-md"
+                    height={310}
+                    src="/threat_illustration.jpg"
+                    width={500}
+                  />
+                </div>
               </div>
             </div>
-            <div className="mx-auto grid max-w-4xl items-center gap-10 py-12 lg:grid-cols-2 lg:gap-20">
-              <div className="flex flex-col justify-center space-y-6">
-                <ul className="grid gap-8">
-                  <li>
-                    <div className="grid gap-2">
-                      <h3 className="text-xl font-semibold text-primary">Credential Phishing</h3>
-                      <p className="text-muted-foreground">
-                        58% of attacks target login credentials, often via sophisticated phishing schemes.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="grid gap-2">
-                      <h3 className="text-xl font-semibold text-primary">Malware and Ransomware</h3>
-                      <p className="text-muted-foreground">
-                        These attacks disrupt operations and target sensitive payment/customer data.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="grid gap-2">
-                      <h3 className="text-xl font-semibold text-primary">DDoS Attacks</h3>
-                      <p className="text-muted-foreground">
-                        Aim to overwhelm retail networks, especially during peak seasons.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex items-center justify-center">
-                <Image
-                  alt="Threats Illustration"
-                  className="aspect-video rounded-xl object-cover object-center shadow-md"
-                  height={310}
-                  src="/threat_illustration.jpg"
-                  width={500}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
         {/* Features Section */}
         <section id="features" className="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-muted">
           <div className="w-full max-w-6xl px-4 md:px-8 mx-auto">
@@ -150,9 +165,16 @@ export default function Home() {
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">
-              <Button type="submit" className="w-full h-12 text-base font-semibold">
-                Contact Us
-              </Button>
+              <p className="text-muted-foreground">
+                If you have any questions or would like to learn more about our cybersecurity initiatives, please contact us.
+              </p>
+              
+                
+                <a href="mailto:anshjain9159@gmail.com">
+                <Button type="button" className="w-full h-12 text-base font-semibold">
+                  Contact Us
+                </Button>
+                </a>
             </div>
           </div>
         </section>
