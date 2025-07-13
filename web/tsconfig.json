@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noEmitOnError": false,
+    "noEmitOnError": true,
     "forceConsistentCasingInFileNames": false,
     "plugins": [
       {

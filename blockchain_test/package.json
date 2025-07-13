@@ -4,7 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network mainnet",
+    "clean": "hardhat clean",
+    "verify": "hardhat verify",
+    "start:server": "node server.js",
+    "start:simple": "node simple-server.js",
+    "start:render": "node render-server.js",
+    "dev:server": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +28,9 @@
     "hardhat": "^2.25.0"
   },
   "dependencies": {
-    "dotenv": "^17.2.0"
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
   }
 }

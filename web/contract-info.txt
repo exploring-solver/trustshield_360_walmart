@@ -1,0 +1,25 @@
+PS C:\Users\anshj\OneDrive\Desktop\projects\walmart\blockchain_test> npx hardhat run .\scripts\deploy.ts --network sepolia
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (0) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+🚀 Deploying TrustShield TransactionLedger contract...
+📝 Deploying contracts with account: 0xB7Cf4907313428413A0f17A3e6eA1644E0472d68
+💰 Account balance: 0.74904625498447 ETH
+⏳ Waiting for deployment...
+✅ TransactionLedger deployed successfully!
+📍 Contract address: 0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2
+🔗 Network: sepolia
+
+🔍 Verifying deployment...
+✅ Contract verification successful!
+
+📋 Deployment Summary:
+   Contract: TransactionLedger
+   Address: 0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2
+   Network: sepolia
+   Deployer: 0xB7Cf4907313428413A0f17A3e6eA1644E0472d68
+
+💡 Next steps:
+   1. Copy the contract address above
+   2. Update your .env file with:
+      NEXT_PUBLIC_BLOCKCHAIN_CONTRACT_ADDRESS=0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2
+   3. Restart your application

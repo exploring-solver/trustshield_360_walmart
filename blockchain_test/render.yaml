@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: trustshield-blockchain
+    env: docker
+    dockerfilePath: ./Dockerfile.simple
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8545
+      - key: HOST
+        value: 0.0.0.0 
