@@ -10,9 +10,16 @@ import { ActivityLogTable } from "@/components/dashboard/activity-log-table"
 import { ActiveSessions } from "@/components/dashboard/active-sessions"
 import AdaptiveCheckoutButton from "@/components/dashboard/adaptive-checkout-button"
 import { Shield, Settings, Activity, Users, Lock, Eye, Zap } from "lucide-react"
+import { headers } from "next/headers"
 
 export default async function DashboardPage() {
-  const data = await getSecurityData()
+  const headersList = await headers()
+  const ipHeader = headersList.get('x-forwarded-for') || ''
+  const rawIp = ipHeader.split(',')[0] || 'Unknown'
+  const clientIp = rawIp === '::1' ? '127.0.0.1' : rawIp
+  console.log(clientIp)
+  const data = await getSecurityData(clientIp)
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900">

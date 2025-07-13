@@ -1,4 +1,5 @@
 // src/lib/data.ts
+import { currentUser } from "@clerk/nextjs/server";
 
 // --- TYPE DEFINITIONS ---
 export interface User {
@@ -44,12 +45,14 @@ export interface SecurityData {
 }
 
 // This function simulates an API call to a secure backend.
-export const getSecurityData = async (): Promise<SecurityData> => {
+export const getSecurityData = async (clientIp: string): Promise<SecurityData> => {
+  const user = await currentUser();
+
   await new Promise(resolve => setTimeout(resolve, 500));
 
   return {
     user: {
-      name: 'Alex',
+      name: user?.firstName || 'Guest',
     },
     riskScore: {
       value: 78,
@@ -66,6 +69,15 @@ export const getSecurityData = async (): Promise<SecurityData> => {
     activityLog: [
       {
         id: 'evt-1',
+        date: '2025-06-26 20:30 PM',
+        event: 'Login',
+        status: 'Success',
+        device: 'Windows',
+        ipAddress: `${clientIp}`, // Injected IP
+        riskLevel: 'Low',
+      },
+      {
+        id: 'evt-2',
         date: '2025-06-26 22:10 PM',
         event: 'Login Attempt',
         status: 'Blocked',
@@ -73,15 +85,7 @@ export const getSecurityData = async (): Promise<SecurityData> => {
         ipAddress: '198.51.100.1',
         riskLevel: 'High',
       },
-      {
-        id: 'evt-2',
-        date: '2025-06-26 20:30 PM',
-        event: 'Login',
-        status: 'Success',
-        device: 'iPhone 16 Pro',
-        ipAddress: '203.0.113.25 (Current)',
-        riskLevel: 'Low',
-      },
+      
       {
         id: 'evt-3',
         date: '2025-06-25 11:05 AM',
@@ -91,7 +95,7 @@ export const getSecurityData = async (): Promise<SecurityData> => {
         ipAddress: '203.0.113.19',
         riskLevel: 'Low',
       },
-       {
+      {
         id: 'evt-4',
         date: '2025-06-24 09:12 PM',
         event: 'Purchase',
@@ -104,8 +108,8 @@ export const getSecurityData = async (): Promise<SecurityData> => {
     activeSessions: [
       {
         id: 'session-1',
-        device: 'iPhone 16 Pro',
-        location: 'Mumbai, India',
+        device: 'Windows 11',
+        location: `Mumbai, India • ${clientIp}`,
         lastSeen: 'Active Now',
         isCurrent: true,
       },
