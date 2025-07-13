@@ -23,4 +23,3 @@ PS C:\Users\anshj\OneDrive\Desktop\projects\walmart\blockchain_test> npx hardhat
    2. Update your .env file with:
       NEXT_PUBLIC_BLOCKCHAIN_CONTRACT_ADDRESS=0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2
    3. Restart your application
-PS C:\Users\anshj\OneDrive\Desktop\projects\walmart\blockchain_test> 

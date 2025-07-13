@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // File: src/app/copilot-demo/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -115,7 +116,7 @@ export default function CopilotDemoPage() {
               <CardTitle>Recent Security Events</CardTitle>
             </div>
             <p className="text-sm text-muted-foreground">
-              Click "Ask AI" to get detailed analysis and recommendations for any security event
+              Click &ldquo;Ask AI&ldquo; to get detailed analysis and recommendations for any security event
             </p>
           </CardHeader>
           <CardContent>

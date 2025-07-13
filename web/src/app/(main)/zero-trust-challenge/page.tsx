@@ -11,7 +11,7 @@ import {
   Clock, 
   User,
   MapPin,
-  Smartphone,
+  
   CreditCard
 } from 'lucide-react'
 import ZeroTrustChallenge from '@/components/zero-trust-challenge'
