@@ -1,9 +1,8 @@
 services:
   - type: web
     name: trustshield-blockchain
-    env: node
-    buildCommand: npm install
-    startCommand: npm run start:server
+    env: docker
+    dockerfilePath: ./Dockerfile.simple
     envVars:
       - key: NODE_ENV
         value: production

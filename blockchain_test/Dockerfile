@@ -1,19 +1,40 @@
-FROM node:18-alpine
+# Multi-stage build for TrustShield Blockchain Node
 
-# Set working directory
+# Stage 1: Build stage (compile contracts)
+FROM node:18-alpine AS builder
+
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including dev dependencies)
+RUN npm ci
 
 # Copy source code
 COPY . .
 
 # Compile contracts
 RUN npm run compile
+
+# Stage 2: Production stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm ci --only=production
+
+# Copy compiled contracts from builder stage
+COPY --from=builder /app/artifacts ./artifacts
+COPY --from=builder /app/cache ./cache
+COPY --from=builder /app/typechain-types ./typechain-types
+
+# Copy source code
+COPY . .
 
 # Expose port
 EXPOSE 8545
