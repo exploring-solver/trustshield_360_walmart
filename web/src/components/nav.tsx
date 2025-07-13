@@ -43,7 +43,7 @@ export function Nav() {
   
   const trustShieldRoutes = [
     {
-      name: "Demo Visualization",
+      name: "Demo Visualization ⭐",
       href: "/visualization",
       icon: ArrowUpRightFromSquareIcon,
       description: "Demonstration of security features"
@@ -73,26 +73,26 @@ export function Nav() {
     //   description: "Emergency wallet protection"
     // },
     {
-      name: "Zero Trust Challenge",
+      name: "Zero Trust Challenge ⭐",
       href: "/zero-trust-challenge",
       icon: Eye,
       description: "Advanced security validation"
     },
     
     {
-      name: "Admin Dashboard", 
+      name: "Admin Dashboard ⭐", 
       href: "/admin-dashboard",
       icon: Settings,
       description: "Real-time security monitoring"
     },
     {
-      name: "Blockchain Explorer",
+      name: "Blockchain Explorer ⭐",
       href: "/blockchain-explorer", 
       icon: Database,
       description: "Transaction ledger explorer"
     },
     {
-      name: "Digital Wallet",
+      name: "Digital Wallet ⭐",
       href: "/wallet-ui",
       icon: Wallet,
       description: "Verifiable credentials wallet"
