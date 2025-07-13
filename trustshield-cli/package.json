@@ -1,25 +1,38 @@
 {
   "name": "trustshield-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
-    "trustshield": "./cli.js"
+    "trustshield": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",
-    "cli": "ts-node index.ts"
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "start": "node dist/index.js",
+    "cli": "node dist/cli.js",
+    "dev": "ts-node src/index.ts",
+    "help": "ts-node src/index.ts --help",
+    "watch": "tsc --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "security",
+    "walmart",
+    "trustshield"
+  ],
+  "author": "Walmart TrustShield Team",
   "license": "ISC",
-  "description": "",
+  "description": "Command-line interface for Walmart TrustShield 360 Security Platform",
   "dependencies": {
     "axios": "^1.10.0",
-    "chalk": "^5.4.1",
+    "chalk": "^4.1.2",
     "commander": "^14.0.0",
-    "ora": "^8.2.0"
+    "dotenv": "^17.2.0",
+    "ora": "5.4.1"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

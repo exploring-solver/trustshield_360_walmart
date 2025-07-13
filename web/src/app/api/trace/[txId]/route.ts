@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { txId: string } }) {
-  const { txId } = params;
+export async function GET(request: Request, { params }: { params: Promise<{ txId: string }> }) {
+  const { txId } = await params;
   
   // Mock trace data 
   const mockTrace = {

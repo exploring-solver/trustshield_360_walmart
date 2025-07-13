@@ -1,11 +1,14 @@
 // trustshield-cli/index.ts
-import { Command } from 'commander';
+import { Command, program } from 'commander';
 import chalk from 'chalk';
 import axios from 'axios';
-import ora from 'ora';
+import ora = require('ora');
+import dotenv from 'dotenv';
+dotenv.config();
 
-const program = new Command();
-const API_BASE = 'http://localhost:3000/api';
+// Set API base from env or default
+// .env: TRUSTSHIELD_API_BASE=https://your-api-domain.com/api
+const API_BASE = process.env.TRUSTSHIELD_API_BASE || 'http://localhost:3000/api';
 
 // ASCII Art Banner
 const banner = `

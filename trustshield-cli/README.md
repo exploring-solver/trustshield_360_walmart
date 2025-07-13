@@ -41,8 +41,8 @@ A powerful command-line interface for Walmart's TrustShield 360 Security Platfor
    # Using npm script
    npm run cli
    
-   # Or directly with ts-node
-   npx ts-node index.ts
+   # Or directly with node
+   node dist/cli.js
    ```
 
 ### Option 2: Global Installation
@@ -66,7 +66,12 @@ A powerful command-line interface for Walmart's TrustShield 360 Security Platfor
 
 2. **Run in development mode:**
    ```bash
-   npx ts-node index.ts
+   npm run dev
+   ```
+
+3. **Watch for changes:**
+   ```bash
+   npm run watch
    ```
 
 ## Usage
@@ -262,8 +267,12 @@ The CLI outputs detailed logs to help with debugging:
 
 ```
 trustshield-cli/
-├── index.ts          # Main CLI implementation
-├── cli.js           # Entry point for global installation
+├── src/
+│   ├── index.ts     # Main CLI implementation
+│   └── cli.ts       # Entry point for global installation
+├── dist/            # Compiled JavaScript output
+│   ├── index.js     # Compiled main CLI
+│   └── cli.js       # Compiled entry point
 ├── package.json     # Dependencies and scripts
 ├── tsconfig.json    # TypeScript configuration
 └── README.md        # This file
@@ -271,7 +280,7 @@ trustshield-cli/
 
 ### Adding New Commands
 
-1. **Add command definition:**
+1. **Add command definition in `src/index.ts`:**
    ```typescript
    program
      .command('newcommand')
@@ -286,6 +295,11 @@ trustshield-cli/
    ```bash
    npm run build
    npm run cli newcommand --option value
+   ```
+
+3. **For development with hot reload:**
+   ```bash
+   npm run dev newcommand --option value
    ```
 
 ### Dependencies
