@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  trustshield-blockchain:
+    build: .
+    ports:
+      - "8545:8545"
+    environment:
+      - NODE_ENV=production
+      - PORT=8545
+      - HOST=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8545/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 
