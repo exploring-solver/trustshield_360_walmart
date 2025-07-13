@@ -23,12 +23,12 @@ app.get('/health', (req, res) => {
 // Start the Hardhat node directly
 console.log('🚀 Starting TrustShield Blockchain Node...');
 
-const hardhatNode = spawn('npx', ['hardhat', 'node'], {
+const hardhatNode = spawn('npx', ['hardhat', 'node', '--host', '0.0.0.0', '--port', PORT.toString()], {
   stdio: 'inherit', // This will show Hardhat output directly
   shell: true,
   env: {
     ...process.env,
-    HOST: HOST,
+    HOST: '0.0.0.0',
     PORT: PORT.toString()
   }
 });

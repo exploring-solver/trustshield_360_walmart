@@ -14,6 +14,7 @@
     "verify": "hardhat verify",
     "start:server": "node server.js",
     "start:simple": "node simple-server.js",
+    "start:render": "node render-server.js",
     "dev:server": "nodemon server.js"
   },
   "keywords": [],
