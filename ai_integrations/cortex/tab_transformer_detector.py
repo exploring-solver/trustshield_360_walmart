@@ -88,9 +88,17 @@ class TabTransformerDetector:
     # Internals
     # ------------------------------------------------------------------
     def _identify_columns(self, df: pd.DataFrame):
-        self._cat_cols = [c for c in df.columns if df[c].dtype == "object" or df[c].dtype.name == "category"]
-        self._cont_cols = [c for c in df.columns if c not in self._cat_cols]
+        self._cat_cols = [
+            c for c in df.columns
+            if (df[c].dtype == "object" or df[c].dtype.name == "category")
+            and not pd.api.types.is_datetime64_any_dtype(df[c])  # Exclude datetime
+        ]
+        self._cont_cols = [
+            c for c in df.columns
+            if c not in self._cat_cols and not pd.api.types.is_datetime64_any_dtype(df[c])
+        ]
         self._cat_sizes = tuple(int(df[c].astype("category").nunique()) + 1 for c in self._cat_cols)
+
 
     def _preprocess(self, df: pd.DataFrame) -> Tuple[torch.Tensor, torch.Tensor]:
         # categorical to codes (missing -> last index)

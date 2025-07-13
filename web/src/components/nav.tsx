@@ -13,7 +13,10 @@ import {
   Wallet,
   Database,
   Brain,
-  Bot
+  Bot,
+  DecimalsArrowLeft,
+  ArrowDownLeftFromSquareIcon,
+  ArrowUpRightFromSquareIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -37,31 +40,13 @@ import { Badge } from "@/components/ui/badge";
 
 export function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  
   const trustShieldRoutes = [
     {
-      name: "Checkout Demo",
-      href: "/checkout",
-      icon: ShoppingCart,
-      description: "Secure payment flow demo"
-    },
-    {
-      name: "Admin Dashboard", 
-      href: "/admin-dashboard",
-      icon: Settings,
-      description: "Real-time security monitoring"
-    },
-    {
-      name: "Blockchain Explorer",
-      href: "/blockchain-explorer", 
-      icon: Database,
-      description: "Transaction ledger explorer"
-    },
-    {
-      name: "Digital Wallet",
-      href: "/wallet-ui",
-      icon: Wallet,
-      description: "Verifiable credentials wallet"
+      name: "Demo Visualization",
+      href: "/demo",
+      icon: ArrowUpRightFromSquareIcon,
+      description: "Demonstration of security features"
     },
     {
       name: "TrustBot",
@@ -86,7 +71,31 @@ export function Nav() {
       href: "/zero-trust-challenge",
       icon: Eye,
       description: "Advanced security validation"
-    }
+    },
+    {
+      name: "Checkout Demo",
+      href: "/checkout",
+      icon: ShoppingCart,
+      description: "Secure payment flow demo"
+    },
+    {
+      name: "Admin Dashboard", 
+      href: "/admin-dashboard",
+      icon: Settings,
+      description: "Real-time security monitoring"
+    },
+    {
+      name: "Blockchain Explorer",
+      href: "/blockchain-explorer", 
+      icon: Database,
+      description: "Transaction ledger explorer"
+    },
+    {
+      name: "Digital Wallet",
+      href: "/wallet-ui",
+      icon: Wallet,
+      description: "Verifiable credentials wallet"
+    },
   ];
 
   return (
@@ -103,12 +112,18 @@ export function Nav() {
           <ThemeToggle />
           <SignedIn>
             {/* Legacy Routes */}
-            <Link href="/visualization">
+            <Link href="/demo">
+              <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
+                <DecimalsArrowLeft className="h-4 w-4" />
+                Demo Page
+              </Button>
+            </Link>
+            {/* <Link href="/visualization">
               <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
                 <Eye className="h-4 w-4" />
                 Visualizer
               </Button>
-            </Link>
+            </Link> */}
             <Link href="/secure-flow">
               <Button variant="outline" size="sm" className="hidden lg:flex gap-2">
                 <Blocks className="h-4 w-4" />
