@@ -58,7 +58,7 @@ function startHardhatNode() {
     
     // Proxy all RPC requests to Hardhat node
     app.use('/', createProxyMiddleware({
-      target: 'http://127.0.0.1:8546',
+      target: 'http://0.0.0.0:8546',
       changeOrigin: true,
       logLevel: 'silent',
       onError: (err, req, res) => {
@@ -68,7 +68,7 @@ function startHardhatNode() {
     }));
     
     console.log('✅ Proxy setup complete!');
-  }, 8000); // Increased wait time
+  }, 10000); // Increased wait time
 }
 
 // Handle process signals
