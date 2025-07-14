@@ -13,7 +13,7 @@ TrustShield 360 is an end-to-end solution designed to secure retail operations, 
 - **Deployed App:** [https://trustshield-walmart.vercel.app/](https://trustshield-walmart.vercel.app/)
 - **YouTube Demo:** [Demo Link](https://youtu.be/nBdvU48_mSk)
 - **Presentation Slides:** [PPT Link](https://www.canva.com/design/DAGsdrb9jnQ/nq3jTTXwZxDdOxWOZuwSrA/edit?utm_content=DAGsdrb9jnQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-
+- **Contract Deployed Address:** [0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2](https://sepolia.etherscan.io/address/0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2)
 ---
 
 ## 👥 Team Members - Aegis 360
@@ -39,6 +39,7 @@ TrustShield 360 is an end-to-end solution designed to secure retail operations, 
 - **Hardhat & Scripts:** Blockchain deployment, testing, and automation.
 - **Render & Docker:** Cloud deployment, server scripts, and documentation.
 
+
 ### [`/trustshield-cli`](./trustshield-cli)
 - **CLI Tool:** Command-line interface for trust credential management and wallet operations.
 - **TypeScript Source:** Modular CLI codebase and utilities.
@@ -62,8 +63,8 @@ TrustShield 360 is an end-to-end solution designed to secure retail operations, 
 ## 🛠️ Getting Started
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/exploring-solver/walmart
-   cd walmart
+   git clone https://github.com/exploring-solver/trustshield_360_walmart
+   cd trustshield_360_walmart
    ```
 2. **Setup each module:**
    - See respective folder README files for setup and usage instructions.

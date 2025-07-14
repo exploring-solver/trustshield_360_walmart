@@ -202,3 +202,5 @@ graph TB
 - **Blockchain**: Ethereum, Solidity, Hardhat
 - **Cloud**: AWS S3, Vercel deployment
 - **Security**: Clerk Auth, libsodium, quantum-resistant algorithms
+
+> Built by Team Aegis 360 for Walmart Sparkathon'25.

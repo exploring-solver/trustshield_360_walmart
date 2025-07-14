@@ -51,3 +51,5 @@ npx hardhat node
 # npx hardhat ignition deploy ./ignition/modules/Lock.ts
 npx hardhat run scripts/deploy.ts --network localhost
 ```
+
+> Built by Team Aegis 360 for Walmart Sparkathon'25.

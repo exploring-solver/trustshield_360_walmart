@@ -16,7 +16,7 @@ A Next.js 14 web application for Walmart's TrustShield 360 platform, providing a
 
 ### 1. Install dependencies
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### 2. Run the development server
@@ -27,11 +27,10 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
 ## Project Structure
-- `src/app/(main)/dashboard` — Security dashboard overview
-- `src/app/(main)/secure-flow` — End-to-end secure transaction simulation
-- `src/app/(main)/visualization` — Fraud graph, AI cortex demo, vision guard
+- `src/app/(main)` — Pages
 - `src/components/` — UI components and feature modules
 - `src/app/api/` — API routes for blockchain, AI, and security integrations
+
 
 ## Tech Stack
 - Next.js 14 (App Router)
