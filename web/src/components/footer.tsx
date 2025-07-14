@@ -40,7 +40,7 @@ export function Footer() {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            Made with ❤️ by Team KAPA • © {new Date().getFullYear()}
+            Made with ❤️ by Team Aegis 360 • © {new Date().getFullYear()}
           </div>
         </div>
       </div>
