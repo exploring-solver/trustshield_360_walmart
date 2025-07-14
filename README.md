@@ -11,8 +11,8 @@ TrustShield 360 is an end-to-end solution designed to secure retail operations, 
 
 ## 🌐 Live Demo & Media
 - **Deployed App:** [https://trustshield-walmart.vercel.app/](https://trustshield-walmart.vercel.app/)
-- **YouTube Demo:** [Demo Link]()
-- **Presentation Slides:** [PPT Link]()
+- **YouTube Demo:** [Demo Link](https://youtu.be/nBdvU48_mSk)
+- **Presentation Slides:** [PPT Link](https://www.canva.com/design/DAGsdrb9jnQ/nq3jTTXwZxDdOxWOZuwSrA/edit?utm_content=DAGsdrb9jnQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
 
