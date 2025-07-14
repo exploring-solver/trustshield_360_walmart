@@ -369,4 +369,4 @@ pip install torch --index-url https://download.pytorch.org/whl/cu118
 # Reinstall all dependencies
 pip install --force-reinstall -r requirements.txt
 ```
-> Built by Team Aegis 360 for Walmart Sparkathon'25.
+> Built by Team Agesis 360 for Walmart Sparkathon'25.

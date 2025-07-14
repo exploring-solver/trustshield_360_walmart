@@ -16,7 +16,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "TrustShield 360",
-  description: "Aegis 360 Walmart Prototype",
+  description: "Agesis 360 Walmart Prototype",
   icons: {
     icon: "/favicon.ico",
   },

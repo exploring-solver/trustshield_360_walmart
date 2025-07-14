@@ -43,4 +43,4 @@ Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Walmart Sparkathon](https://walmart.converge.tech/content/converge/en_in/sparkathon/building-trust-in-retail-with-cybersecurity.html)
 
-Built by Team Aegis 360 for Walmart Sparkathon'25.
+Built by Team Agesis 360 for Walmart Sparkathon'25.

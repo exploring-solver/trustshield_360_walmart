@@ -330,4 +330,4 @@ For issues and questions:
 
 ISC License - see package.json for details.
 
-> Built by Team Aegis 360 for Walmart Sparkathon'25.
+> Built by Team Agesis 360 for Walmart Sparkathon'25.

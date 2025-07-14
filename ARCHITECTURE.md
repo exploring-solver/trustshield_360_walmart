@@ -203,4 +203,4 @@ graph TB
 - **Cloud**: AWS S3, Vercel deployment
 - **Security**: Clerk Auth, libsodium, quantum-resistant algorithms
 
-> Built by Team Aegis 360 for Walmart Sparkathon'25.
+> Built by Team Agesis 360 for Walmart Sparkathon'25.

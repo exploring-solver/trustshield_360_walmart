@@ -16,7 +16,7 @@ TrustShield 360 is an end-to-end solution designed to secure retail operations, 
 - **Contract Deployed Address:** [0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2](https://sepolia.etherscan.io/address/0xB034Fec01d3Cb3bAc8AbB4f94bDAE8ad6437bEB2)
 ---
 
-## 👥 Team Members - Aegis 360
+## 👥 Team Members - Agesis 360
 - **Ansh Jain** - [GitHub](https://github.com/AnshJain9159)
 - **Aman** - [GitHub](https://github.com/exploring-solver)
 - **Khushi Minda** - [GitHub](https://github.com/khushiminda)

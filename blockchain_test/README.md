@@ -52,4 +52,4 @@ npx hardhat node
 npx hardhat run scripts/deploy.ts --network localhost
 ```
 
-> Built by Team Aegis 360 for Walmart Sparkathon'25.
+> Built by Team Agesis 360 for Walmart Sparkathon'25.
